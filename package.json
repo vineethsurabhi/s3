@@ -1,0 +1,45 @@
+{
+  "name": "electronupdater-s3",
+  "version": "1.0.0-master",
+  "description": "testing electron updater with s3",
+  "main": "main.js",
+  "dist": "electron-builder --publish always",
+  "scripts": {
+    "publish": "build -p always",
+    "start": "electron ."
+  },
+  "repository":"https://github.com/vineethsurabhi/s3.git",
+  "author": "vineeth surabhi",
+  "license": "ISC",
+  "dependencies": {
+    "electron-log": "^2.2.14",
+    "electron-updater": "^2.21.0"
+  },
+  "devDependencies": {
+    "electron": "^1.8.3",
+    "electron-builder": "^20.3.1",
+    "electron-publisher-s3": "^20.2.0"
+  },
+  "build": {
+    "appId": "com.amazon.myapp",
+    "asar": true,
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "publish": [
+        {
+          "provider": "github",
+             "owner": "vineethsurabhi",
+             "repo": "s3"
+
+        }
+      ]
+    }
+  }
+}
